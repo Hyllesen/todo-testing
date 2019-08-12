@@ -15,6 +15,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "bluebird": "^3.5.5",
     "chai-http": "^4.3.0",
     "mocha": "^6.2.0",
     "node-mocks-http": "^1.7.6"
