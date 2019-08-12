@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Mocha Tests",
+      "name": "Mocha 1 file",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "args": [
         "--timeout",
@@ -16,6 +16,25 @@
         "${workspaceFolder}/tests/unit/todo.spec.js"
       ],
       "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha All",
+      "skipFiles": [
+        "<node_internals>/**/*.js",
+        "${workspaceRoot}/node_modules/**/*.js",
+        "${workspaceRoot}/lib/**/*.js"
+      ],
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--timeout",
+        "999999",
+        "--colors",
+        "'${workspaceFolder}/{,!(node_modules)/}*/*.spec.js'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
