@@ -42,14 +42,10 @@ describe("createTodo", () => {
     const createdTodoPromiseResolved = Promise.resolve(createdTodo);
     TodoModelMock.expects("create")
       .withArgs(newTodo)
-      .returns(createdTodoPromiseResolved)
+      .returns(createdTodo)
       .once();
-    const response = TodoController.createTodo(req, res, next);
-    return response.then(() => {
-      console.log(response);
-      console.log(res.json());
-      expect(response).to.be.a("object");
-      expect(response).to.deep.equal(createdTodo);
-    });
+    await TodoController.createTodo(req, res, next);
+    expect(res._getJSONData()).to.be.a("object");
+    expect(res._getJSONData()).to.deep.equal(createdTodo);
   });
 });
